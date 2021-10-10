@@ -1,0 +1,53 @@
+.leagueContainer {
+  background-color: #f2f2f2;
+  margin-bottom: 30px;
+  border-radius: 2px;
+  border: solid 1px #cdd2d2;
+}
+
+.leagueTextContainer {
+  text-align: left;
+}
+@media screen and (max-width: 768px) {
+  .leagueTextContainer {
+    text-align: center;
+  }
+}
+
+.leagueName {
+  font-size: 11px;
+  color: #879292;
+  font-family: AppleSDGothicNeo;
+}
+
+.leagueTop {
+  font-size: 12px;
+  color: #353a3a;
+  font-family: AppleSDGothicNeo;
+}
+
+.leagueDivision {
+  font-size: 15px;
+  color: #1f8ecd;
+  font-family: Helvetica;
+  font-weight: bold;
+}
+
+.leagueDivisionUnranked {
+  font-size: 13px;
+  color: #879292;
+  font-family: Helvetica;
+  font-weight: bold;
+}
+
+.leagueStats {
+  font-size: 12px;
+  color: #879292;
+  font-family: Helvetica;
+}
+
+.leagueRatio {
+  font-size: 12px;
+  color: #879292;
+  font-family: AppleSDGothicNeo;
+}

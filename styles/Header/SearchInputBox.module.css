@@ -1,0 +1,64 @@
+.searchboxContainer,
+.inputboxContainer {
+  position: absolute;
+  width: 260px;
+  top: 45px;
+  background-color: white;
+
+  z-index: 10;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 50%);
+  color: #4a4a4a;
+  font-family: Helvetica;
+}
+
+.searchboxTabSelected,
+.searchboxTab {
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.searchboxTab {
+  background-color: #e3e3e3;
+  color: #879292;
+}
+
+.searchElementContainer {
+  font-size: 11px;
+}
+
+.searchName {
+  text-align: left;
+  cursor: pointer;
+}
+
+.searchElementIcon {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.historyNotFoundText {
+  font-size: 12px;
+}
+
+.searchInputElementContainer {
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.searchInputElementContainer:hover {
+  background-color: #e8f5fe;
+}
+
+.searchInputElementIcon {
+  border-radius: 50%;
+}
+
+.searchInputSummonerName {
+  font-size: 14px;
+}
+
+.searchNameContainer,
+.searchInputSummoner {
+  text-align: left;
+}

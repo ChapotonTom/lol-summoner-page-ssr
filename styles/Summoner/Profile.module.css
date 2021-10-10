@@ -1,0 +1,79 @@
+.profileContainer {
+  border: solid #d8d8d8;
+  border-width: thin;
+}
+
+.previousTiersContainer {
+  display: flex;
+  padding-left: 25px;
+}
+
+.previousTiersElement {
+  border: solid #d0d3d4;
+  border-radius: 2px;
+  padding: 4px 5px 3px;
+  margin: 0 0 0 7px;
+  background-color: #e0e3e3;
+
+  font-family: Helvetica;
+  font-size: 11px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.42px;
+  color: #657070;
+}
+
+.profilePictureContainer {
+  position: relative;
+}
+
+.profilePicture {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.profilePictureBorder {
+  left: -10px;
+  top: -12px;
+  position: absolute;
+}
+
+.profileName {
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.77px;
+  color: #242929;
+  font-family: AppleSDGothicNeo;
+}
+
+.profileLadder {
+  font-size: 11px;
+  color: #657070;
+  font-family: AppleSDGothicNeo;
+}
+
+.profileDescription {
+  text-align: left;
+}
+
+.imgLevelbox {
+  position: absolute;
+  left: 28px;
+  top: 85px;
+}
+
+.profileLevel {
+  position: absolute;
+  color: #f6e08f;
+  font-size: 14px;
+  top: 86px;
+  left: 42px;
+  width: 44px;
+  height: 24px;
+}
