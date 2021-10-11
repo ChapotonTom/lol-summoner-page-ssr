@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from "react";
 import styles from "../../../../../../../styles/Summoner/GameSummary.module.css";
 
 import { calculateRatio } from "../../../../../../utils/calculateRatio";
@@ -21,8 +22,15 @@ const positionIconKeywords = {
 
 export const GamesPositions = (props) => {
   const { gamesPositions } = props;
-  const randomHighPercentage = Math.floor(Math.random() * (100 - 60) + 60);
-  const secondRandomBestPercentage = (100 - randomHighPercentage) / 2;
+  const [randomHighPercentage, setRandomHighPercentage] = useState();
+  const [secondRandomBestPercentage, setSecondRandomHighPercentage] =
+    useState();
+
+  useEffect(() => {
+    const randomPercentage = Math.floor(Math.random() * (100 - 60) + 60);
+    setRandomHighPercentage(randomPercentage);
+    setSecondRandomHighPercentage((100 - randomPercentage) / 2);
+  }, []);
   return (
     <div className="column is-one-quarter">
       <div className={`mt-1 ${styles.gamesSummaryPreferedPosition}`}>

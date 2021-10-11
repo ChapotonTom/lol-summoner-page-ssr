@@ -1,0 +1,302 @@
+.gameDetailsContainer {
+  min-height: 100px;
+  border-width: thin;
+  border-radius: 2px;
+}
+
+.gameVictory {
+  border: solid #a1b8cd;
+  background-color: #b0ceea;
+}
+
+.gameDefeat {
+  border: solid #c0aba8;
+  background-color: #d6b5b2;
+}
+
+.gameRematch {
+  border: solid #999999;
+  background-color: #a7a7a7;
+}
+
+/* GENERAL INFORMATIONS */
+.gameGeneralInfosContainer {
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .gameGeneralInfosContainer {
+    padding-top: 20px;
+  }
+}
+
+.gameGeneralInfosGameType {
+  font-family: AppleSDGothicNeo;
+  font-size: 11px;
+  font-weight: bold;
+  color: #555;
+  padding-top: 3px;
+}
+
+.gameGeneralInfosGameCreation,
+.gameGeneralInfosGameLength {
+  font-family: AppleSDGothicNeo;
+  font-size: 11px;
+  color: #555;
+  padding-top: 3px;
+}
+
+.gameGeneralInfosSeparator {
+  border-bottom: thin solid black;
+  width: 27px;
+  margin: auto;
+  border-width: thin;
+}
+
+.gameGeneralInfosGameResult {
+  font-family: AppleSDGothicNeo;
+  font-size: 11px;
+  color: #555;
+  font-weight: bold;
+  padding-top: 3px;
+}
+
+/* CHAMPION AND STUFF */
+
+.gameStuffIconContainer {
+  width: 35px;
+}
+
+.gameChampionPicture {
+  border-radius: 50%;
+}
+
+.gameSpellPeakIcon {
+  border-radius: 2px;
+  margin-bottom: -5px;
+}
+
+.gameChampionName {
+  text-align: center;
+  font-family: AppleSDGothicNeo;
+  font-size: 13px;
+  color: #555;
+}
+
+/* KDA */
+
+.gameStuffIconContainer {
+  width: 35px;
+}
+
+.gameChampionPicture {
+  width: 46px;
+  border-radius: 50%;
+}
+
+.gameSpellPeakIcon {
+  width: 22px;
+  height: 22px;
+  border-radius: 2px;
+  margin-bottom: -5px;
+}
+
+.gameKillsAssistsDeaths {
+  font-family: Helvetica;
+  font-size: 15px;
+  font-weight: bold;
+  color: #555e5e;
+  letter-spacing: -0.58px;
+}
+
+.gameKdaStr {
+  font-family: Helvetica;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: -0.42px;
+  color: #333;
+}
+
+.gameKillingBadge {
+  display: flex;
+}
+
+.gameMultiKillings {
+  width: 60px;
+  height: 18px;
+  margin-right: 5px;
+  padding: 1px 5px;
+  border-radius: 9px;
+  border: solid 1px #bf3b36;
+  background-color: #ec4f48;
+
+  font-family: Helvetica;
+  font-size: 10px;
+  color: #fff;
+}
+
+.gameScoreBadge {
+  width: 31px;
+  height: 18px;
+  margin-left: 5px;
+  padding: 1px 5px;
+  border-radius: 9px;
+  border: solid 1px #7f3590;
+  background-color: #8c51c5;
+
+  font-family: Helvetica;
+  font-size: 10px;
+  color: #fff;
+}
+
+/* MORE STATS */
+
+.gameStatsLevel {
+  font-family: Helvetica;
+  font-size: 11px;
+  font-weight: bold;
+  color: #555e5e;
+}
+
+.gameStatsCs {
+  font-family: AppleSDGothicNeo;
+  font-size: 11px;
+  color: #555e5e;
+}
+
+.gameStatsKillsContribution {
+  font-family: Helvetica;
+  font-size: 11px;
+  color: #d0021b;
+  font-weight: bold;
+}
+
+/* ITEMS */
+
+.gameInventoryItemsLineContainer {
+  display: flex;
+}
+
+.gameInventoryItemPicture,
+.gameInventoryWardPicture {
+  position: relative;
+  border-radius: 2px;
+  margin: 1px;
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
+}
+
+.gameInventoryEmptyItemPicture {
+  border-radius: 2px;
+  margin: 1px;
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
+}
+
+.gameEmptyItemRed {
+  background-color: #cb9e9a;
+}
+
+.gameEmptyItemBlue {
+  background-color: #7aa5c3;
+}
+
+.gameEmptyItemBlack {
+  background-color: #979797;
+}
+
+.gameInventoryWard {
+  display: flex;
+}
+
+.gameInventoryWardStr {
+  font-family: Helvetica;
+  font-size: 11px;
+  letter-spacing: -0.42px;
+  color: #000;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.gameInventoryWardPicture {
+  cursor: auto;
+}
+
+/* TEAMS */
+
+.gameTeamPlayerContainer {
+  display: flex;
+  overflow: hidden;
+}
+
+.gameTeamPlayerChampionPicture,
+.gameTeamPlayerChampionPictureRound {
+  position: relative;
+  margin-bottom: 1px;
+  margin-right: 5px;
+  width: 16px;
+  height: 16px;
+}
+
+.gameTeamPlayerChampionPictureRound {
+  border-radius: 50%;
+}
+
+.gameTeamPlayerName {
+  font-family: Helvetica;
+  font-size: 11px;
+  letter-spacing: -0.42px;
+  color: #555;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  overflow: hidden;
+}
+
+.gameLastColumn {
+  height: 100%;
+  width: 100%;
+}
+
+.gameLastColumn {
+  width: 30px;
+}
+
+.gameMoreInfo {
+  flex-grow: 1;
+  height: 100%;
+  min-height: 40px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.gameArrowgameDefeat,
+.gameArrowgameVictory,
+.gameArrowgameRematch {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  user-select: none;
+}
+
+.gameArrowgameDefeat {
+  filter: invert(80%) sepia(97%) saturate(1091%) hue-rotate(333deg)
+    brightness(82%) contrast(82%);
+}
+
+.gameArrowgameVictory {
+  filter: invert(80%) sepia(86%) saturate(833%) hue-rotate(172deg)
+    brightness(91%) contrast(106%);
+}
+
+.gameArrowgameRematch {
+  filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(297deg)
+    brightness(96%) contrast(104%);
+}

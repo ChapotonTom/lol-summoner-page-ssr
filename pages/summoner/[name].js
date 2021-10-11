@@ -36,14 +36,27 @@ const insertSummonerInHistory = (summoner) => {
 };
 
 export const Summoner = (props) => {
-  const { summoner, summonerMoreInfo, summonerGames } = props;
+  const {
+    summoner,
+    summonerMoreInfo,
+    summonerGames,
+    itemsDetails,
+    summonerGamesList,
+  } = props;
 
   useEffect(() => {
     insertSummonerInHistory(summoner);
   }, [summoner]);
   return (
     <div>
-      <SummonerContext.Provider value={{ summonerMoreInfo, summonerGames }}>
+      <SummonerContext.Provider
+        value={{
+          summonerMoreInfo,
+          summonerGames,
+          itemsDetails,
+          summonerGamesList,
+        }}
+      >
         <Header />
         <SummonerProfile summoner={summoner} />
         <SummonerInformations summoner={summoner} />
@@ -56,22 +69,42 @@ export async function getServerSideProps({ params }) {
   const baseUri = config.baseUri;
   const summonerName = params.name;
 
-  const [summonerResponse, summonerMoreInfosResponse, summonnerGamesReponse] =
-    await Promise.all([
-      fetch(`${baseUri}/summoner/${summonerName}?hl=en`),
-      fetch(`${baseUri}/summoner/${summonerName}/mostInfo?hl=en`),
-      fetch(`${baseUri}/summoner/${summonerName}/matches?hl=en`),
-    ]);
+  const [
+    summonerResponse,
+    summonerMoreInfosResponse,
+    summonnerGamesReponse,
+    itemsDetailsResponse,
+  ] = await Promise.all([
+    fetch(`${baseUri}/summoner/${summonerName}?hl=en`),
+    fetch(`${baseUri}/summoner/${summonerName}/mostInfo?hl=en`),
+    fetch(`${baseUri}/summoner/${summonerName}/matches?hl=en`),
+    fetch(
+      `https://ddragon.leagueoflegends.com/cdn/10.19.1/data/en_US/item.json`
+    ),
+  ]);
 
   const summonerData = await summonerResponse.json();
   const summonerMoreInfoData = await summonerMoreInfosResponse.json();
   const summonerGamesData = await summonnerGamesReponse.json();
+  const itemsDetailsData = await itemsDetailsResponse.json();
+
+  const gamesFormatted = await Promise.all(
+    summonerGamesData.games.map(async (game) => {
+      const gameTeamsDetailsResponse = await fetch(
+        `${baseUri}/summoner/${summonerName}/matchDetail/${game.gameId}?hl=en`
+      );
+      game.teams = (await gameTeamsDetailsResponse.json())["teams"];
+      return game;
+    })
+  );
 
   return {
     props: {
       summoner: summonerData.summoner,
       summonerMoreInfo: summonerMoreInfoData,
       summonerGames: summonerGamesData,
+      itemsDetails: itemsDetailsData.data,
+      summonerGamesList: gamesFormatted,
     },
   };
 }
