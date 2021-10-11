@@ -1,6 +1,7 @@
 import React from "react";
 import SummonerLeagues from "./components/SummonerLeagues";
 import SummonerChampions from "./components/SummonerChampions/SummonerChampions";
+import SummonerGamesSummary from "./components/SummonerGamesSummary/SummonerGamesSummary";
 // import SummonerGames from "./components/SummonerGames/SummonerGames";
 
 export const SummonerInformations = (props) => {
@@ -16,7 +17,7 @@ export const SummonerInformations = (props) => {
               <SummonerChampions summoner={summoner} />
             </div>
             <div className="column">
-              <div> </div>
+              <SummonerGamesSummary />
               {/* <SummonerGames summoner={summoner} /> */}
             </div>
           </div>

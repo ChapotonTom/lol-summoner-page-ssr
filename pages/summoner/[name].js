@@ -36,14 +36,14 @@ const insertSummonerInHistory = (summoner) => {
 };
 
 export const Summoner = (props) => {
-  const { summoner, summonerMoreInfo } = props;
+  const { summoner, summonerMoreInfo, summonerGames } = props;
 
   useEffect(() => {
     insertSummonerInHistory(summoner);
   }, [summoner]);
   return (
     <div>
-      <SummonerContext.Provider value={{ summonerMoreInfo }}>
+      <SummonerContext.Provider value={{ summonerMoreInfo, summonerGames }}>
         <Header />
         <SummonerProfile summoner={summoner} />
         <SummonerInformations summoner={summoner} />
@@ -56,18 +56,22 @@ export async function getServerSideProps({ params }) {
   const baseUri = config.baseUri;
   const summonerName = params.name;
 
-  const [summonerResponse, summonerMoreInfosResponse] = await Promise.all([
-    fetch(`${baseUri}/summoner/${summonerName}?hl=en`),
-    fetch(`${baseUri}/summoner/${summonerName}/mostInfo?hl=en`),
-  ]);
+  const [summonerResponse, summonerMoreInfosResponse, summonnerGamesReponse] =
+    await Promise.all([
+      fetch(`${baseUri}/summoner/${summonerName}?hl=en`),
+      fetch(`${baseUri}/summoner/${summonerName}/mostInfo?hl=en`),
+      fetch(`${baseUri}/summoner/${summonerName}/matches?hl=en`),
+    ]);
 
   const summonerData = await summonerResponse.json();
   const summonerMoreInfoData = await summonerMoreInfosResponse.json();
+  const summonerGamesData = await summonnerGamesReponse.json();
 
   return {
     props: {
       summoner: summonerData.summoner,
       summonerMoreInfo: summonerMoreInfoData,
+      summonerGames: summonerGamesData,
     },
   };
 }

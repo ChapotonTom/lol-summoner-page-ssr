@@ -12,10 +12,14 @@ export const SummonerChampions = (props) => {
 
   const [sortByWinRate, setSortByWinRate] = useState(true);
   const [champions, setChampions] = useState([]);
+  const [recentWinRate, setRecentWinRate] = useState([]);
 
-  useEffect(() => {
-    let formattedChampions = summonerMoreInfo.champions.map((champion) => {
-      champion.winRate = calculateRatio(champion.wins, champion.games);
+  const processChampions = (champions, setter) => {
+    let formattedChampions = champions.map((champion) => {
+      champion.winRate = calculateRatio(
+        champion.wins,
+        champion.games || champion.wins + champion.losses
+      );
       if (champion.imageUrl.startsWith("//"))
         champion.imageUrl = "https:" + champion.imageUrl;
       return champion;
@@ -23,8 +27,13 @@ export const SummonerChampions = (props) => {
     formattedChampions = formattedChampions.sort(
       (a, b) => b.winRate - a.winRate
     );
-    setChampions(formattedChampions);
-  }, [summonerMoreInfo.champions]);
+    setter(formattedChampions);
+  };
+
+  useEffect(() => {
+    processChampions(summonerMoreInfo.champions, setChampions);
+    processChampions(summonerMoreInfo.recentWinRate, setRecentWinRate);
+  }, [summonerMoreInfo.champions, summonerMoreInfo.recentWinRate]);
 
   return (
     <div className={styles.championsContainer}>
@@ -57,7 +66,7 @@ export const SummonerChampions = (props) => {
           );
         })}
       {!sortByWinRate &&
-        champions.map((champion, index) => {
+        recentWinRate.map((champion, index) => {
           return (
             <ChampionsByWeekRate
               key={champion.name + index}

@@ -15,7 +15,6 @@ export const SummonerChampionsByWeekRate = (props) => {
     champion.wins + champion.losses
   );
 
-  console.log(champion.imageUrl);
   return (
     <div
       className={`columns mx-0 is-mobile py-1 ${styles.championRow} ${
